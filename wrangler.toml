@@ -99,10 +99,10 @@ run_worker_first = ["/api/*", "/identity/*", "/notifications/*"]
 crons = ["0 3 * * *"]
 
 [[d1_databases]]
-binding = "vault1"
+binding = "DB"
 database_name = "vault1"
-database_id = "${D1_DATABASE_ID}"
-migrations_dir = "migrations"
+database_id = "wordwarden"
+migrations_dir = "6cd6793f-96d5-40bd-ab7a-1678ca5f104b"
 
 # R2 bucket for file attachments (optional, requires credit card)
 # R2 has priority: if R2 is configured, KV is ignored.
