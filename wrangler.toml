@@ -98,6 +98,7 @@ run_worker_first = ["/api/*", "/identity/*", "/notifications/*"]
 [triggers]
 crons = ["0 3 * * *"]
 
+# 全局D1数据库配置
 [[d1_databases]]
 binding = "DB"
 database_name = "vault1"
@@ -141,6 +142,14 @@ name = "LOGIN_RATE_LIMITER"
 namespace_id = "1002"
 simple = { limit = 5, period = 60 }
 
+# 修复：添加binding为"DB"的D1数据库配置
+[[env.dev.d1_databases]]
+binding = "DB"
+database_name = "vault1-dev"
+database_id = "${D1_DATABASE_ID_DEV}"
+migrations_dir = "migrations"
+
+# 保留原有的binding为"vault1"的配置（如果需要）
 [[env.dev.d1_databases]]
 binding = "vault1"
 database_name = "vault1-dev"
